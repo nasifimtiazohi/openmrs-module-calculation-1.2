@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module configVersion="1.2">
+
+	<!-- Module Properties -->
+	<id>${project.parent.artifactId}</id>
+	<name>${project.parent.name}</name>
+	<version>${project.parent.version}</version>
+	<package>org.openmrs.${project.parent.artifactId}</package>
+	<author>OpenMRS developers</author>
+	<description>
+		${project.parent.description}
+	</description>
+	<updateURL>
+		https://dev.openmrs.org/modules/download/${project.parent.artifactId}/update.rdf
+	</updateURL>
+	<require_version>1.11.3, 1.10.2 - 1.10.*, 1.9.9 - 1.9.*</require_version>
+	<!-- Change the require version back to the below, and update the openMRSVersion property accordingly when 1.6.6 is released -->
+	<!-- require_version>${openMRSVersion}</require_version -->
+	<!-- / Module Properties -->
+
+	<aware_of_modules>
+	    <aware_of_module>org.openmrs.module.legacyui</aware_of_module>
+	</aware_of_modules>
+
+	<!-- Module Activator -->
+	<activator>org.openmrs.${project.parent.artifactId}.CalculationActivator</activator>
+	
+	<extension>
+        <point>org.openmrs.admin.list</point>
+        <class>org.openmrs.calculation.web.extension.AdminList</class>
+    </extension>
+
+	<!-- Required Privileges -->
+	<privilege>
+		<name>View Token Registrations</name>
+		<description>Allows to view token registrations</description>
+	</privilege>
+	<privilege>
+		<name>Manage Token Registrations</name>
+		<description>Allows to create/update/delete token registrations</description>
+	</privilege>
+	<privilege>
+		<name>View Calculations</name>
+		<description>Allows to view Calculations</description>
+	</privilege>
+	<!-- /Required Privileges -->
+
+	<!-- Maps hibernate file's, if present -->
+	<mappingFiles>
+		CalculationRegistration.hbm.xml
+	</mappingFiles>
+
+	<!-- Internationalization -->
+	<!-- All message codes should start with ${project.parent.artifactId}. -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+
+</module>

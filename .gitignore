@@ -1,0 +1,16 @@
+*.class
+.settings
+.project
+.classpath
+
+# maven ignores
+target/
+
+# IntelliJ ignores
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# OSX ignores
+*.DS_Store
